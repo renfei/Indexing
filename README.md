@@ -24,7 +24,7 @@ java -jar Indexing.jar
 - 百度Token获取地址： https://ziyuan.baidu.com/linksubmit/index
 - 必应Token获取地址：https://docs.microsoft.com/en-us/bingwebmaster/getting-access#using-api-key
 - 谷歌JSON私钥获取：https://www.renfei.net/posts/1003342
-- 谷歌上报需要本地是"Fan Qiang"状态，否则网络不通
+- 谷歌上报需要本地是"你懂得"状态，否则网络不通，总是触发关键词「根据相关法律政策,该内容无法显示」
 - 各个平台的接口提交配额与本工具无关，是各个平台分配给你的；例如百度快速收录是百度站长工具给予的权限，与是否使用本工具无关
 - 本工具不会收集上报用户的Token，本工具代码已开源，欢迎监督，如遇仿制程序上报Token请联系 i@renfei.net
 
