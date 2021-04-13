@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="net.renfei.indexing.ui.MainWindow">
+  <grid id="27dc6" binding="mainPanel" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="29" y="24" width="1000" height="10191"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <splitpane id="d1dfb">
+        <constraints border-constraint="Center"/>
+        <properties>
+          <continuousLayout value="true"/>
+          <dividerLocation value="400"/>
+          <dividerSize value="5"/>
+        </properties>
+        <border type="none"/>
+        <children>
+          <splitpane id="11e5a" binding="rightSplitPane">
+            <constraints>
+              <splitpane position="right"/>
+            </constraints>
+            <properties>
+              <dividerLocation value="300"/>
+              <dividerSize value="5"/>
+              <orientation value="0"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <scrollpane id="797f" binding="urlsScroPane">
+                <constraints>
+                  <splitpane position="left"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="b84e0" class="javax.swing.JTextArea" binding="urls">
+                    <constraints/>
+                    <properties>
+                      <editable value="true"/>
+                      <text value="https://www.renfei.net/demo/1"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+              <scrollpane id="a8e67" binding="logsScroPane">
+                <constraints>
+                  <splitpane position="right"/>
+                </constraints>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="39e39" class="javax.swing.JTextArea" binding="logText">
+                    <constraints/>
+                    <properties>
+                      <background color="-1118482"/>
+                      <editable value="false"/>
+                      <text value="--== 运行日志 ==--"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+            </children>
+          </splitpane>
+          <grid id="b0205" layout-manager="GridLayoutManager" row-count="21" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="2" vgap="4">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints>
+              <splitpane position="left"/>
+            </constraints>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="b5187" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="63" height="16"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="百度Token："/>
+                </properties>
+              </component>
+              <component id="f180b" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="63" height="16"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="必应Token："/>
+                </properties>
+              </component>
+              <hspacer id="f8fdf">
+                <constraints>
+                  <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="63" height="11"/>
+                  </grid>
+                </constraints>
+              </hspacer>
+              <component id="df307" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="63" height="16"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="上报项："/>
+                </properties>
+              </component>
+              <component id="ae66c" class="javax.swing.JCheckBox" binding="chkBaiduPuTong">
+                <constraints>
+                  <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <selected value="true"/>
+                  <text value="百度普通收录"/>
+                </properties>
+              </component>
+              <component id="3df7d" class="javax.swing.JCheckBox" binding="chkBaiDuKuiSu">
+                <constraints>
+                  <grid row="8" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="百度快速收录"/>
+                </properties>
+              </component>
+              <component id="3631d" class="javax.swing.JCheckBox" binding="chkGoogle">
+                <constraints>
+                  <grid row="10" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="谷歌搜索"/>
+                </properties>
+              </component>
+              <hspacer id="64b4b">
+                <constraints>
+                  <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="63" height="11"/>
+                  </grid>
+                </constraints>
+              </hspacer>
+              <component id="3df5f" class="javax.swing.JButton" binding="execButton">
+                <constraints>
+                  <grid row="11" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="执行"/>
+                </properties>
+              </component>
+              <component id="fd600" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="63" height="16"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="谷歌私钥："/>
+                </properties>
+              </component>
+              <hspacer id="bb49">
+                <constraints>
+                  <grid row="19" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </hspacer>
+              <hspacer id="d319c">
+                <constraints>
+                  <grid row="12" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </hspacer>
+              <hspacer id="5d109">
+                <constraints>
+                  <grid row="13" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </hspacer>
+              <component id="3d3d7" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="14" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="63" height="16"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="使用说明："/>
+                </properties>
+              </component>
+              <component id="7e77b" class="javax.swing.JCheckBox" binding="chkBing">
+                <constraints>
+                  <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="必应搜索"/>
+                </properties>
+              </component>
+              <component id="1275f" class="javax.swing.JTextField" binding="siteUrl">
+                <constraints>
+                  <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="https://www.renfei.net"/>
+                </properties>
+              </component>
+              <component id="c4e23" class="javax.swing.JLabel">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false">
+                    <preferred-size width="63" height="16"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <text value="站点URL："/>
+                </properties>
+              </component>
+              <vspacer id="5f232">
+                <constraints>
+                  <grid row="20" column="1" row-span="1" col-span="1" vsize-policy="2" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+                    <preferred-size width="11" height="4052"/>
+                  </grid>
+                </constraints>
+              </vspacer>
+              <component id="3b685" class="javax.swing.JTextField" binding="baiduToken">
+                <constraints>
+                  <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties/>
+              </component>
+              <component id="26427" class="javax.swing.JTextField" binding="bingToken">
+                <constraints>
+                  <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="-1"/>
+                  </grid>
+                </constraints>
+                <properties/>
+              </component>
+              <hspacer id="62dc3">
+                <constraints>
+                  <grid row="18" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </hspacer>
+              <hspacer id="f6bd2">
+                <constraints>
+                  <grid row="17" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </hspacer>
+              <hspacer id="90d42">
+                <constraints>
+                  <grid row="16" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </hspacer>
+              <hspacer id="2d5c9">
+                <constraints>
+                  <grid row="14" column="1" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+              </hspacer>
+              <component id="56fab" class="javax.swing.JTextArea" binding="explain">
+                <constraints>
+                  <grid row="15" column="1" row-span="1" col-span="1" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
+                    <preferred-size width="150" height="50"/>
+                  </grid>
+                </constraints>
+                <properties>
+                  <background color="-1118482"/>
+                  <editable value="false"/>
+                  <lineWrap value="true"/>
+                  <text value="1.百度Token获取地址： https://ziyuan.baidu.com/linksubmit/index&#10;2.必应Token获取地址：https://docs.microsoft.com/en-us/bingwebmaster/getting-access&#10;3.谷歌JSON私钥获取：https://www.renfei.net/posts/1003342&#10;4.谷歌上报需要本地是翻墙状态，否则网络不通&#10;5.各个平台的接口提交配额与本工具无关，是各个平台分配给你的；例如百度快速收录是百度站长工具给予的权限，与是否使用本工具无关&#10;6.本工具不会收集上报用户的Token，本工具代码已开源，欢迎监督，如遇仿制程序上报Token请联系 i@renfei.net"/>
+                  <wrapStyleWord value="true"/>
+                </properties>
+              </component>
+              <component id="5af2b" class="javax.swing.JButton" binding="googleJson">
+                <constraints>
+                  <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="点击选择JSON文件"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </splitpane>
+    </children>
+  </grid>
+</form>

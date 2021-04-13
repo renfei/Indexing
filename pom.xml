@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>net.renfei</groupId>
+    <artifactId>Indexing</artifactId>
+    <version>1.0.0</version>
+    <name>Indexing</name>
+    <url>https://www.renfei.net/kitbox/indexing</url>
+    <description>Indexing - 搜索引擎推送工具 - SEO 工具箱</description>
+
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
+
+    <issueManagement>
+        <system>GitHub Issues</system>
+        <url>https://github.com/renfei/Indexing/issues</url>
+    </issueManagement>
+
+    <inceptionYear>2021</inceptionYear>
+
+    <scm>
+        <connection>scm:git:git://github.com/renfei/Indexing.git</connection>
+        <developerConnection>scm:git:git@github.com:renfei/Indexing.git</developerConnection>
+        <url>https://github.com/renfei/Indexing</url>
+    </scm>
+
+    <developers>
+        <developer>
+            <id>renfei</id>
+            <name>RenFei</name>
+            <email>i@renfei.net</email>
+            <roles>
+                <role>owner</role>
+                <role>developer</role>
+            </roles>
+            <organization>RENFEI.NET</organization>
+            <organizationUrl>https://www.renfei.net</organizationUrl>
+            <timezone>+8</timezone>
+        </developer>
+    </developers>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>net.renfei</groupId>
+            <artifactId>sdk</artifactId>
+            <version>1.0.14</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.apis</groupId>
+            <artifactId>google-api-services-indexing</artifactId>
+            <version>v3-rev71-1.25.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.intellij</groupId>
+            <artifactId>forms_rt</artifactId>
+            <version>7.0.3</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>Indexing</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>ideauidesigner-maven-plugin</artifactId>
+                <version>1.0-beta-1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>javac2</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <fork>true</fork>
+                    <debug>true</debug>
+                    <failOnError>true</failOnError>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>net.renfei.indexing.Application</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
