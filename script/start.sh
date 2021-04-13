@@ -12,4 +12,4 @@ else
     # shellcheck disable=SC2123
     DIR_PATH="`pwd`"/"`dirname "$DIR_NAME"`"
 fi
-nohup "$DIR_PATH"/bin/java -jar "$DIR_PATH"/Indexing.jar > "$DIR_PATH"/Indexing.log 2>&1 & echo $! > "$DIR_PATH"/Indexing.pid
+nohup "$DIR_PATH"/bin/java -jar "$DIR_PATH"/Indexing/Indexing.jar > "$DIR_PATH"/Indexing/Indexing.log 2>&1 & echo $! > "$DIR_PATH"/Indexing/Indexing.pid
