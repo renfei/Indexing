@@ -3,5 +3,5 @@
 @echo #  author: renfei (i@renfei.net)  #
 @echo ###################################
 
-@echo è¯·å‹¿å…³é—­æ­¤çª—å£ï¼Œå…³é—­æ­¤çª—å£ç¨‹åºç«‹å³é€€å‡º
-@bin\java -jar Indexing.jar
+@echo ÇëÎğ¹Ø±Õ´Ë´°¿Ú£¬¹Ø±Õ´Ë´°¿Ú³ÌĞòÁ¢¼´ÍË³ö
+@bin\java -jar Indexing\Indexing.jar
