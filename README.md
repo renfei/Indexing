@@ -15,6 +15,11 @@ java -jar Indexing.jar
 ```
 如果您不确定自己的环境是否拥有 JDK/JRE，我还提供了环境打包版本，由于操作系统不同请下载对应的版本，执行其中的 start 脚本。
 
+## 发布与下载
+请下载对应的环境，执行 start 脚本：
+- Github发布与下载：[https://github.com/renfei/Indexing](https://github.com/renfei/Indexing)
+- Gitee发布与下载：[https://gitee.com/rnf/Indexing/releases](https://gitee.com/rnf/Indexing/releases)
+
 ## 其他说明
 - 百度Token获取地址： https://ziyuan.baidu.com/linksubmit/index
 - 必应Token获取地址：https://docs.microsoft.com/en-us/bingwebmaster/getting-access#using-api-key
@@ -22,6 +27,7 @@ java -jar Indexing.jar
 - 谷歌上报需要本地是翻墙状态，否则网络不通
 - 各个平台的接口提交配额与本工具无关，是各个平台分配给你的；例如百度快速收录是百度站长工具给予的权限，与是否使用本工具无关
 - 本工具不会收集上报用户的Token，本工具代码已开源，欢迎监督，如遇仿制程序上报Token请联系 i@renfei.net
+
 ### 代码仓库
 - [Main] Github:[https://github.com/renfei/Indexing](https://github.com/renfei/Indexing)
 - [Mirror] Gitee:[https://gitee.com/rnf/Indexing](https://gitee.com/rnf/Indexing)
