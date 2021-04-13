@@ -17,7 +17,7 @@ java -jar Indexing.jar
 
 ## 发布与下载
 请下载对应的环境，执行 start 脚本：
-- Github发布与下载：[https://github.com/renfei/Indexing](https://github.com/renfei/Indexing)
+- Github发布与下载：[https://github.com/renfei/Indexing/releases](https://github.com/renfei/Indexing/releases)
 - Gitee发布与下载：[https://gitee.com/rnf/Indexing/releases](https://gitee.com/rnf/Indexing/releases)
 
 ## 其他说明
