@@ -1,6 +1,7 @@
 package net.renfei.indexing.ui;
 
 import net.renfei.indexing.Application;
+import net.renfei.indexing.service.CheckVersionService;
 import net.renfei.sdk.utils.DateUtils;
 
 import javax.swing.*;
@@ -94,6 +95,14 @@ public class MenuBar extends JMenuBar {
         menuOpen.add(item);
         menu.add(menuOpen);
         menu.addSeparator();
+        item = new JMenuItem("更新(U)");
+        item.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                CheckVersionService.checkVersion();
+            }
+        });
+        menu.add(item);
         item = new JMenuItem("关于(A)");
         item.addActionListener(new ActionListener() {
             @Override
