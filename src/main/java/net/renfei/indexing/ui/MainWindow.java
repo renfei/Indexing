@@ -157,7 +157,7 @@ public class MainWindow {
 
     private List<String> getUrlTexts() throws BadLocationException {
         List<String> stringList = new ArrayList<>(urls.getRows());
-        for (int i = 0; i < urls.getRows() + 1; i++) {
+        for (int i = 0; i < urls.getLineCount(); i++) {
             int start = urls.getLineStartOffset(i);
             int end = urls.getLineEndOffset(i);
             String str = urls.getText(start, end - start).replace("\r\n", "").replace("\n", "");

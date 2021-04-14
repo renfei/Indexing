@@ -6,7 +6,7 @@
 
     <groupId>net.renfei</groupId>
     <artifactId>Indexing</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <name>Indexing</name>
     <url>https://www.renfei.net/kitbox/indexing</url>
     <description>Indexing - 搜索引擎推送工具 - SEO 工具箱</description>
