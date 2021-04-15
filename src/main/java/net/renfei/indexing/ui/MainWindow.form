@@ -275,6 +275,15 @@
                   <text value="点击选择JSON文件"/>
                 </properties>
               </component>
+              <component id="197ed" class="javax.swing.JCheckBox" binding="saveConfig">
+                <constraints>
+                  <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <selected value="true"/>
+                  <text value="将配置保存到本地，下次自动加载"/>
+                </properties>
+              </component>
             </children>
           </grid>
         </children>

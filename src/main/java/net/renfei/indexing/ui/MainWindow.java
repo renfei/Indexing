@@ -3,6 +3,8 @@ package net.renfei.indexing.ui;
 import com.intellij.uiDesigner.core.GridConstraints;
 import com.intellij.uiDesigner.core.GridLayoutManager;
 import com.intellij.uiDesigner.core.Spacer;
+import net.renfei.indexing.entity.ConfigVO;
+import net.renfei.indexing.service.ConfigFileService;
 import net.renfei.indexing.service.ExecService;
 import net.renfei.sdk.utils.BeanUtils;
 import net.renfei.sdk.utils.DateUtils;
@@ -40,6 +42,7 @@ public class MainWindow {
     public JSplitPane rightSplitPane;
     public JScrollPane urlsScroPane;
     public JScrollPane logsScroPane;
+    private JCheckBox saveConfig;
 
     public void init() {
         urlsScroPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
@@ -64,6 +67,13 @@ public class MainWindow {
                 }
             }
         });
+        ConfigVO configVO = ConfigFileService.getConfig();
+        if (configVO != null) {
+            siteUrl.setText(configVO.getSiteUrl());
+            baiduToken.setText(configVO.getBaiduToken());
+            bingToken.setText(configVO.getBingToken());
+            googleJson.setText(configVO.getGoogleJsonPath());
+        }
     }
 
     private void setLog(String log) {
@@ -75,6 +85,16 @@ public class MainWindow {
         if (BeanUtils.isEmpty(site)) {
             setLog("【站点URL】不能为空。");
             return;
+        }
+        if (saveConfig.isSelected()) {
+            ConfigVO configVO = new ConfigVO();
+            configVO.setSiteUrl(site);
+            configVO.setBaiduToken(baiduToken.getText());
+            configVO.setBingToken(bingToken.getText());
+            configVO.setGoogleJsonPath(googleJson.getText());
+            ConfigFileService.saveConfig(configVO);
+        } else {
+            ConfigFileService.deleteConfig();
         }
         setLog("获取到【站点URL】：" + site);
         try {
@@ -286,6 +306,10 @@ public class MainWindow {
         googleJson = new JButton();
         googleJson.setText("点击选择JSON文件");
         panel1.add(googleJson, new GridConstraints(3, 1, 1, 1, GridConstraints.ANCHOR_CENTER, GridConstraints.FILL_HORIZONTAL, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
+        saveConfig = new JCheckBox();
+        saveConfig.setSelected(true);
+        saveConfig.setText("将配置保存到本地，下次自动加载");
+        panel1.add(saveConfig, new GridConstraints(4, 1, 1, 1, GridConstraints.ANCHOR_WEST, GridConstraints.FILL_NONE, GridConstraints.SIZEPOLICY_CAN_SHRINK | GridConstraints.SIZEPOLICY_CAN_GROW, GridConstraints.SIZEPOLICY_FIXED, null, null, null, 0, false));
     }
 
     /**

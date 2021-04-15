@@ -7,18 +7,30 @@
 作为软件开发工程师的我，深知安全的重要性，因为此工具运行时需要站长提供 API 的 Token 令牌，这就相当于密码授权。  
 为了证明此工具不会抓取上传站长的 Token 令牌，所以开源公布出来，欢迎监督。（PS:本来想闭源使用混淆编译发布，防止被仿冒）  
 因为开源以后任何人可以利用源码修改制作小版本，站长们请认准 renfei.net 官网。如果发现仿冒请向我举报。
+### 配置文件安全告知
+如果您勾选了「将配置保存到本地，下次自动加载」选项，您所填的站点URL、Token、JSON路径信息将以明文文件的形式保存在您本地硬盘文件系统中。此功能在「1.0.2」版本中被加入。  
+通常这没什么问题，但出于安全性考虑我需要告知您以下信息：
+- 您所填的站点URL、Token、JSON路径信息将以明文(未加密)文件的形式保存在您本地硬盘文件系统中。
+- 其他拥有硬盘文件系统读写权限的程序可以访问到配置文件，例如有病毒扫描磁盘时可能会被读取。
+- 保存位置：程序将在用户目录下创建一个名为「Indexing.conf」的文件。
+- 「用户目录」一般指用户所属目录，在Linux系统中一般路径为「/home/username」，在macOS系统中一般路径为「/Users/username」，在Windows系统中一般是桌面路径为「C:\Users\username\Desktop」。username指你的用户名。
+![配置文件安全告知](https://cdn.renfei.net/upload/2021/3fca3b7e7fda4a9b808b6858cd6c2074.jpg)
 
 ## 使用帮助
 本工具基于 Java8 制作，如果您拥有 Java8 或更高的 JDK/JRE 环境，可以直接下载 Jar 包文件，使用如下命令即可启动：
 ```bash
 java -jar Indexing.jar
 ```
-如果您不确定自己的环境是否拥有 JDK/JRE，我还提供了环境打包版本，由于操作系统不同请下载对应的版本，执行其中的 start 脚本。
+如果您不确定自己的环境是否拥有 JDK/JRE，我还提供了环境打包版本，由于操作系统不同请下载对应的版本，执行其中的 start 脚本。  
+例如在 Windows 下，您只需双击 start.bat 文件。
+
+### 运行效果图
+![运行效果图](https://cdn.renfei.net/upload/2021/27c3ec0b22684032a66ccaf2f6dd9b22.png)
 
 ## 发布与下载
 请下载对应的环境，执行 start 脚本：
-- Github发布与下载：[https://github.com/renfei/Indexing/releases](https://github.com/renfei/Indexing/releases)
 - Gitee发布与下载：[https://gitee.com/rnf/Indexing/releases](https://gitee.com/rnf/Indexing/releases)
+- Github发布与下载：[https://github.com/renfei/Indexing/releases](https://github.com/renfei/Indexing/releases)
 
 ## 其他说明
 - 百度Token获取地址： https://ziyuan.baidu.com/linksubmit/index
@@ -29,9 +41,9 @@ java -jar Indexing.jar
 - 本工具不会收集上报用户的Token，本工具代码已开源，欢迎监督，如遇仿制程序上报Token请联系 i@renfei.net
 
 ### 代码仓库
-- [Main] Github:[https://github.com/renfei/Indexing](https://github.com/renfei/Indexing)
-- [Mirror] Gitee:[https://gitee.com/rnf/Indexing](https://gitee.com/rnf/Indexing)
-- [Mirror] Gitlab:[https://gitlab.com/renfei/Indexing](https://gitlab.com/renfei/Indexing)
+- Gitee:[https://gitee.com/rnf/Indexing](https://gitee.com/rnf/Indexing)
+- Github:[https://github.com/renfei/Indexing](https://github.com/renfei/Indexing)
+- Gitlab:[https://gitlab.com/renfei/Indexing](https://gitlab.com/renfei/Indexing)
 
 ### 求鼓励
 

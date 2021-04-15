@@ -13,7 +13,7 @@ import javax.swing.*;
  */
 public class Application {
     public static final MainWindow MAIN_WINDOW = new MainWindow();
-    public static final String VERSION = "1.0.1";
+    public static final String VERSION = "1.0.2";
     public static void main(String[] args) {
         javax.swing.JFrame frame = new javax.swing.JFrame("Indexing - 搜索引擎推送工具 - SEO 工具箱");
         frame.setContentPane(MAIN_WINDOW.mainPanel);
