@@ -14,8 +14,6 @@ import javax.swing.text.BadLocationException;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
-import java.security.GeneralSecurityException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +23,6 @@ import java.util.List;
  * @author renfei
  */
 public class MainWindow {
-    private final ExecService execService = new ExecService();
     public JPanel mainPanel;
     public JTextArea urls;
     public JTextArea logText;
@@ -42,17 +39,18 @@ public class MainWindow {
     public JSplitPane rightSplitPane;
     public JScrollPane urlsScroPane;
     public JScrollPane logsScroPane;
-    private JCheckBox saveConfig;
+    public JCheckBox saveConfig;
 
     public void init() {
         urlsScroPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         logsScroPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        MainWindow mainWindow = this;
         execButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 setLog("开始执行");
-                exec();
-                setLog("执行结束");
+                Thread execService = new Thread(new ExecService(mainWindow), "ExecService");
+                execService.start();
             }
         });
         googleJson.addActionListener(new ActionListener() {
@@ -76,106 +74,11 @@ public class MainWindow {
         }
     }
 
-    private void setLog(String log) {
+    public void setLog(String log) {
         logText.append("\r\n" + DateUtils.getDate("yyyy-MM-dd HH:mm:ss") + " : " + log);
     }
 
-    private void exec() {
-        String site = siteUrl.getText();
-        if (BeanUtils.isEmpty(site)) {
-            setLog("【站点URL】不能为空。");
-            return;
-        }
-        if (saveConfig.isSelected()) {
-            ConfigVO configVO = new ConfigVO();
-            configVO.setSiteUrl(site);
-            configVO.setBaiduToken(baiduToken.getText());
-            configVO.setBingToken(bingToken.getText());
-            configVO.setGoogleJsonPath(googleJson.getText());
-            ConfigFileService.saveConfig(configVO);
-        } else {
-            ConfigFileService.deleteConfig();
-        }
-        setLog("获取到【站点URL】：" + site);
-        try {
-            if (chkBaiduPuTong.isSelected()) {
-                execBaidu(site);
-            }
-            if (chkBaiDuKuiSu.isSelected()) {
-                execBaiduKuaiSu(site);
-            }
-            if (chkBing.isSelected()) {
-                execBing(site);
-            }
-            if (chkGoogle.isSelected()) {
-                execGoogle(site);
-            }
-        } catch (Exception e) {
-            setLog("\n[!] 发生错误：\r\n" + e.getMessage() + "\r\n如果您认为不是您的错误，请联系开发者：i@renfei.net。\r\n");
-        }
-    }
-
-    private void execBaidu(String siteUrl) throws BadLocationException, IOException {
-        setLog("开始执行百度普通收录推送");
-        String token = baiduToken.getText();
-        if (BeanUtils.isEmpty(token)) {
-            setLog("【百度Token】为空，跳过执行。");
-        } else {
-            List<String> urlList = getUrlTexts();
-            for (String url : urlList
-            ) {
-                setLog("推送：" + url);
-                setLog("结果：" + execService.execBaidu(siteUrl, token, url));
-            }
-        }
-    }
-
-    private void execBaiduKuaiSu(String siteUrl) throws BadLocationException, IOException {
-        setLog("开始执行百度快速收录推送");
-        String token = baiduToken.getText();
-        if (BeanUtils.isEmpty(token)) {
-            setLog("【百度Token】为空，跳过执行。");
-        } else {
-            List<String> urlList = getUrlTexts();
-            for (String url : urlList
-            ) {
-                setLog("推送：" + url);
-                setLog("结果：" + execService.execBaiduKuaiSu(siteUrl, token, url));
-            }
-        }
-    }
-
-    private void execBing(String siteUrl) throws BadLocationException, IOException {
-        setLog("开始执行必应推送");
-        String token = bingToken.getText();
-        if (BeanUtils.isEmpty(token)) {
-            setLog("【必应Token】为空，跳过执行。");
-        } else {
-            List<String> urlList = getUrlTexts();
-            for (String url : urlList
-            ) {
-                setLog("推送：" + url);
-                setLog("结果：" + execService.execBing(siteUrl, token, url));
-            }
-        }
-    }
-
-    private void execGoogle(String siteUrl) throws BadLocationException, IOException, GeneralSecurityException {
-        setLog("开始执行谷歌推送");
-        String token = googleJson.getText();
-        if (BeanUtils.isEmpty(token) || "点击选择JSON文件".equals(token)) {
-            setLog("【谷歌私钥】为空，跳过执行。");
-        } else {
-            List<String> urlList = getUrlTexts();
-            for (String url : urlList
-            ) {
-                setLog("推送：" + url);
-                setLog("结果：" + execService.execGoogle(googleJson.getText(), url));
-            }
-        }
-    }
-
-    private List<String> getUrlTexts() throws BadLocationException {
+    public List<String> getUrlTexts() throws BadLocationException {
         List<String> stringList = new ArrayList<>(urls.getRows());
         for (int i = 0; i < urls.getLineCount(); i++) {
             int start = urls.getLineStartOffset(i);
