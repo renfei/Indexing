@@ -1,4 +1,4 @@
-![Indexing - 搜索引擎推送工具 - SEO 工具箱](https://cdn.renfei.net/upload/image/2021/indexing_tools.gif)
+![Indexing - 搜索引擎推送工具 - SEO 工具箱](./doc/image/indexing_tools.gif)
 # Indexing - 百度-必应-谷歌 搜索引擎推送工具
 此工具利用「百度-必应-谷歌」站长工具或开放平台接口即时推送网站更新给搜索引擎，加快蜘蛛程序爬取与更新。  
 此工具代码作者已经使用多年，同时作者正在探索 Swing/AWT 编程，此工具作为作者 Swing/AWT 编程处女作，顺便将技术能力通过可视化界面分享出来，让不懂编程的站长也可以使用 API 接口的便利。
@@ -14,7 +14,8 @@
 - 其他拥有硬盘文件系统读写权限的程序可以访问到配置文件，例如有病毒扫描磁盘时可能会被读取。
 - 保存位置：程序将在用户目录下创建一个名为「Indexing.conf」的文件。
 - 「用户目录」一般指用户所属目录，在Linux系统中一般路径为「/home/username」，在macOS系统中一般路径为「/Users/username」，在Windows系统中一般是桌面路径为「C:\Users\username\Desktop」。username指你的用户名。
-![配置文件安全告知](https://cdn.renfei.net/upload/2021/3fca3b7e7fda4a9b808b6858cd6c2074.jpg)
+
+![配置文件安全告知](./doc/image/3fca3b7e7fda4a9b808b6858cd6c2074.jpg)
 
 ## 使用帮助
 本工具基于 Java8 制作，如果您拥有 Java8 或更高的 JDK/JRE 环境，可以直接下载 Jar 包文件，使用如下命令即可启动：
@@ -25,7 +26,7 @@ java -jar Indexing.jar
 例如在 Windows 下，您只需双击 start.bat 文件。
 
 ### 运行效果图
-![运行效果图](https://cdn.renfei.net/upload/2021/27c3ec0b22684032a66ccaf2f6dd9b22.png)
+![运行效果图](./doc/image/27c3ec0b22684032a66ccaf2f6dd9b22.png)
 
 ## 发布与下载
 请下载对应的环境，执行 start 脚本：
