@@ -8,9 +8,10 @@ public class ConfigVO {
     private String baiduToken;
     private String bingToken;
     private String googleJsonPath;
+    private String soToken;
 
     public String getSiteUrl() {
-        return siteUrl;
+        return siteUrl == null ? "" : siteUrl;
     }
 
     public void setSiteUrl(String siteUrl) {
@@ -18,7 +19,7 @@ public class ConfigVO {
     }
 
     public String getBaiduToken() {
-        return baiduToken;
+        return baiduToken == null ? "" : baiduToken;
     }
 
     public void setBaiduToken(String baiduToken) {
@@ -26,7 +27,7 @@ public class ConfigVO {
     }
 
     public String getBingToken() {
-        return bingToken;
+        return bingToken == null ? "" : bingToken;
     }
 
     public void setBingToken(String bingToken) {
@@ -34,10 +35,18 @@ public class ConfigVO {
     }
 
     public String getGoogleJsonPath() {
-        return googleJsonPath;
+        return googleJsonPath == null ? "" : googleJsonPath;
     }
 
     public void setGoogleJsonPath(String googleJsonPath) {
         this.googleJsonPath = googleJsonPath;
+    }
+
+    public String getSoToken() {
+        return soToken == null ? "" : soToken;
+    }
+
+    public void setSoToken(String soToken) {
+        this.soToken = soToken;
     }
 }

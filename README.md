@@ -38,8 +38,21 @@ java -jar Indexing.jar
 - 必应Token获取地址：https://docs.microsoft.com/en-us/bingwebmaster/getting-access#using-api-key
 - 谷歌JSON私钥获取：https://www.renfei.net/posts/1003342
 - 谷歌上报需要本地是"你懂得"状态，否则网络不通，总是触发关键词「根据相关法律政策,该内容无法显示」
+- 360搜索Token获取：http://zhanzhang.so.com/sitetool/auto_include
 - 各个平台的接口提交配额与本工具无关，是各个平台分配给你的；例如百度快速收录是百度站长工具给予的权限，与是否使用本工具无关
 - 本工具不会收集上报用户的Token，本工具代码已开源，欢迎监督，如遇仿制程序上报Token请联系 i@renfei.net
+
+### 关于360搜索的说明
+360搜索并未提供提交API接口，此工具使用的是「360搜索自动收录」模拟JS运行提交的，获取Token的方法为，在 http://zhanzhang.so.com/sitetool/auto_include 中有如下代码：
+```javascript
+<script>
+(function(){
+var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2d3wgacfbs36e696dba";
+document.write('<script src="' + src + '" id="sozz"><\/script>');
+})();
+</script>
+```
+其中```d182b3f28525f2d3wgacfbs36e696dba```就是要取出的Token。
 
 ### 代码仓库
 - Gitee:[https://gitee.com/rnf/Indexing](https://gitee.com/rnf/Indexing)

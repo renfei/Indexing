@@ -20,9 +20,10 @@ public class ExecService implements Runnable {
     private BaiduService baiduService;
     private BingService bingService;
     private GoogleService googleService;
+    private QiHu360Service qiHu360Service;
     private MainWindow mainWindow;
 
-    public ExecService(MainWindow mainWindow){
+    public ExecService(MainWindow mainWindow) {
         this.mainWindow = mainWindow;
     }
 
@@ -71,6 +72,13 @@ public class ExecService implements Runnable {
         } else {
             throw new RuntimeException("请选择.json的文件");
         }
+    }
+
+    public String exec360SO(String soToken, String url) throws IOException {
+        if (qiHu360Service == null) {
+            qiHu360Service = new QiHu360Service(soToken);
+        }
+        return qiHu360Service.push(url);
     }
 
     private void execBaidu(String siteUrl) throws BadLocationException, IOException {
@@ -133,6 +141,27 @@ public class ExecService implements Runnable {
         }
     }
 
+    private void exec360SO() throws BadLocationException, IOException {
+        mainWindow.setLog("开始执行360搜索推送");
+        String token = mainWindow.soToken.getText();
+        if (BeanUtils.isEmpty(token)) {
+            mainWindow.setLog("【360搜索Token】为空，跳过执行。");
+        } else {
+            List<String> urlList = mainWindow.getUrlTexts();
+            for (String url : urlList
+            ) {
+                mainWindow.setLog("推送：" + url);
+                try {
+                    exec360SO(token, url);
+                    mainWindow.setLog("结果：成功！");
+                } catch (Exception e) {
+                    mainWindow.setLog("结果：失败！" + e.getMessage());
+                }
+
+            }
+        }
+    }
+
     @Override
     public void run() {
         String site = mainWindow.siteUrl.getText();
@@ -146,6 +175,7 @@ public class ExecService implements Runnable {
             configVO.setBaiduToken(mainWindow.baiduToken.getText());
             configVO.setBingToken(mainWindow.bingToken.getText());
             configVO.setGoogleJsonPath(mainWindow.googleJson.getText());
+            configVO.setSoToken(mainWindow.soToken.getText());
             ConfigFileService.saveConfig(configVO);
         } else {
             ConfigFileService.deleteConfig();
@@ -163,6 +193,9 @@ public class ExecService implements Runnable {
             }
             if (mainWindow.chkGoogle.isSelected()) {
                 execGoogle(site);
+            }
+            if (mainWindow.chkSo.isSelected()) {
+                exec360SO();
             }
         } catch (Exception e) {
             mainWindow.setLog("\n[!] 发生错误：\r\n" + e.getMessage() + "\r\n如果您认为不是您的错误，请联系开发者：i@renfei.net。\r\n");
