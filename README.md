@@ -43,16 +43,19 @@ java -jar Indexing.jar
 - 本工具不会收集上报用户的Token，本工具代码已开源，欢迎监督，如遇仿制程序上报Token请联系 i@renfei.net
 
 ### 关于360搜索的说明
-360搜索并未提供提交API接口，此工具使用的是「360搜索自动收录」模拟JS运行提交的，获取Token的方法为，在 http://zhanzhang.so.com/sitetool/auto_include 中有如下代码：
-```javascript
-<script>
-(function(){
-var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2d3wgacfbs36e696dba";
-document.write('<script src="' + src + '" id="sozz"><\/script>');
-})();
-</script>
-```
-其中```d182b3f28525f2d3wgacfbs36e696dba```就是要取出的Token。
+360站长平台自动收录功能于2021年5月10日下线关闭。官方公告：[https://bbs.360.cn/thread-15979727-1-1.html](https://bbs.360.cn/thread-15979727-1-1.html)
+
+感谢 [@xfanly](https://gitee.com/xfanly) 的反馈：[https://gitee.com/rnf/Indexing/issues/I4J425](https://gitee.com/rnf/Indexing/issues/I4J425#note_7484735)
+> ~~360搜索并未提供提交API接口，此工具使用的是「360搜索自动收录」模拟JS运行提交的，获取Token的方法为，在 http://zhanzhang.so.com/sitetool/auto_include 中有如下代码：~~
+> ```javascript
+> <script>
+> (function(){
+> var src = "https://jspassport.ssl.qhimg.com/11.0.1.js?d182b3f28525f2d3wgacfbs36e696dba";
+> document.write('<script src="' + src + '" id="sozz"><\/script>');
+> })();
+> </script>
+> ```
+> ~~其中```d182b3f28525f2d3wgacfbs36e696dba```就是要取出的Token。~~
 
 ### 代码仓库
 - Gitee:[https://gitee.com/rnf/Indexing](https://gitee.com/rnf/Indexing)
