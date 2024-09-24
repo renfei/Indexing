@@ -50,35 +50,44 @@ public class MainWindow {
         urlsScroPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         logsScroPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         MainWindow mainWindow = this;
-        execButton.addActionListener(e -> {
-            setLog("开始执行");
-            Thread execService = new Thread(new ExecService(mainWindow), "ExecService");
-            execService.start();
-        });
-        googleJson.addActionListener(e -> {
-            JFileChooser fc = new JFileChooser("/");
-            int val = fc.showOpenDialog(null);
-            if (val == JFileChooser.APPROVE_OPTION) {
-                googleJson.setText(fc.getSelectedFile().getPath());
-            } else {
-                googleJson.setText("点击选择JSON文件");
+        execButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setLog("开始执行");
+                Thread execService = new Thread(new ExecService(mainWindow), "ExecService");
+                execService.start();
             }
         });
-        extractSitemapButtonButton.addActionListener(e -> {
-            int opt = JOptionPane.showConfirmDialog(extractSitemapButtonButton,
-                    "点击确认将从网站地图文件（sitemap.xml）中提取链接，但是请注意：\n\n" +
-                            "Indexing 接口的本意是：新内容产生时，及时通知搜索引擎爬取，确保新内容的及时收录。\n" +
-                            "网站地图包含了全站连接，其中包括陈旧的内容，所以会产生以下问题：\n\n" +
-                            "1.Indexing 接口滥用，因为提交的并不是新产生的内容，包含大量陈旧可能违反搜索引擎的用户使用协议，可能导致接口权限被收回\n" +
-                            "2.全站链接数量过大，部分接口每天每月有使用限额，一口气提交会导致接口使用额度耗尽\n\n" +
-                            "请知晓以上说明，自行合理的使用 API。",
-                    "从站点地图中提取链接",
-                    JOptionPane.YES_NO_OPTION, WARNING_MESSAGE);
-            if (opt == JOptionPane.YES_OPTION) {
-                //确认继续操作
-                setLog("从站点地图中提取链接");
-                Thread execService = new Thread(new ExtractSitemapService(mainWindow), "ExtractSitemapService");
-                execService.start();
+        googleJson.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser fc = new JFileChooser("/");
+                int val = fc.showOpenDialog(null);
+                if (val == JFileChooser.APPROVE_OPTION) {
+                    googleJson.setText(fc.getSelectedFile().getPath());
+                } else {
+                    googleJson.setText("点击选择JSON文件");
+                }
+            }
+        });
+        extractSitemapButtonButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                int opt = JOptionPane.showConfirmDialog(extractSitemapButtonButton,
+                        "点击确认将从网站地图文件（sitemap.xml）中提取链接，但是请注意：\n\n" +
+                                "Indexing 接口的本意是：新内容产生时，及时通知搜索引擎爬取，确保新内容的及时收录。\n" +
+                                "网站地图包含了全站连接，其中包括陈旧的内容，所以会产生以下问题：\n\n" +
+                                "1.Indexing 接口滥用，因为提交的并不是新产生的内容，包含大量陈旧可能违反搜索引擎的用户使用协议，可能导致接口权限被收回\n" +
+                                "2.全站链接数量过大，部分接口每天每月有使用限额，一口气提交会导致接口使用额度耗尽\n\n" +
+                                "请知晓以上说明，自行合理的使用 API。",
+                        "从站点地图中提取链接",
+                        JOptionPane.YES_NO_OPTION, WARNING_MESSAGE);
+                if (opt == JOptionPane.YES_OPTION) {
+                    //确认继续操作
+                    setLog("从站点地图中提取链接");
+                    Thread execService = new Thread(new ExtractSitemapService(mainWindow), "ExtractSitemapService");
+                    execService.start();
+                }
             }
         });
         ConfigVO configVO = ConfigFileService.getConfig();
