@@ -59,6 +59,20 @@ java -jar Indexing.jar
 > ```
 > ~~其中```d182b3f28525f2d3wgacfbs36e696dba```就是要取出的Token。~~
 
+### 关于从站点地图中提取链接
+
+此功能在```1.0.3```版本中加入。需求来自：[github.com/renfei/Indexing/issues/3](https://github.com/renfei/Indexing/issues/3)
+
+需要注意：Indexing 接口的本意是：新内容产生时，及时通知搜索引擎爬取，确保新内容的及时收录。
+
+网站地图包含了全站连接，其中包括陈旧的内容，所以会产生以下问题：
+
+- Indexing 接口滥用，因为提交的并不是新产生的内容，包含大量陈旧可能违反搜索引擎的用户使用协议，可能导致接口权限被收回
+- 全站链接数量过大，部分接口每天每月有使用限额，一口气提交会导致接口使用额度耗尽
+- 搜索引擎本就会爬取站点地图，重复提交里面的内容并不会有什么特殊的处理
+
+请合理使用您的 API 资源，避免滥用被搜索引擎封禁 API 权限。
+
 ### 代码仓库
 - Gitee:[https://gitee.com/rnf/Indexing](https://gitee.com/rnf/Indexing)
 - Github:[https://github.com/renfei/Indexing](https://github.com/renfei/Indexing)
